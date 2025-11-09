@@ -42,9 +42,28 @@ Calibration hierarchy
 
 Clock ensemble 
 - 2 clocks - can tell difference, not which is wrong
-- 3 - can estimate stability
+- 3 (triangular comparison) allow estimating individual stabilities.
 - 4 - redundancy (in case one fails)
 - reliability + detect who’s “lying”
+- Ensemble = weighted combination of several clocks (improves both reliability and stability).
+- Even a bad clock can help if properly weighted (statistical averaging)
+- Result = a “virtual” clock output more stable than any single clock.
+  
+Comparison methods
+- Clocks compared via time/frequency transfer links; goal - minimal added noise
+- Satellite-based (e.g. GPS) provides accuracies $< 1\mu s$ vs UTC
+- Propagation delay (signal travel time) matters — nanoseconds for local, tens of ms for satellites.
+- Accuracy limited by
+  - Measurement noise
+  - Internal clock deviations
+  - Environmental perturbations.
+- Transfer noise must be ≪ clock noise.
+
+Triangular and larger networks
+- Pairwise comparison: only gives relative differences.
+- Triangular network (3 clocks): can solve for individual variances assuming uncorrelated noise.
+  - for 3 clocks: $\sigma_1^2 = \frac{1}{2}(\sigma_{12}^2 + \sigma_{13}^2 - \sigma_{23}^2)$, similar for $\sigma_2$ and $\sigma_3$
+- for larger networks - allows consistent estimation of all clocks’ stability even without external reference.
   
 
 

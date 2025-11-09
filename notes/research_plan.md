@@ -23,9 +23,29 @@ Yes, but only in a relative sense.
 A single clock can keep its own time, but accuracy can’t be known without comparison. (it's only possible to measure stability internally, but not accuracy)
 
 ### 2. Benchmarking and Comparison
-   - **How can we compare clocks without an external reference?**
-   - **What does a *triangular* comparison network achieve that pairwise comparisons do not?**
-   - **How could this concept generalize to more complex networks?**
+
+**How can we compare clocks without an external reference?**
+
+By comparing differences between clocks.
+Two clocks - only relative drift (can’t tell which one is off).
+With more clocks, individual stabilities can be solved statistically.
+
+**What does a *triangular* comparison network achieve that pairwise comparisons do not?**
+
+With 3 clocks and all pairwise differences, it's possible to separate the contribution of each clock:
+($\sigma_1^2 = \frac{1}{2}(\sigma_{12}^2 + \sigma_{13}^2 - \sigma_{23}^2)$)
+
+=> Each clock’s individual noise/stability can be estimated without a reference.
+
+Also helps detect which clock is unstable (if one’s variance dominates).
+
+**How could this concept generalize to more complex networks?**
+
+Use all pairwise comparisons to fit consistent variances.
+
+Outlier detection: unstable clock can be identified and down-weighted.
+
+Weighted average (“ensemble time”) gives a virtual clock more stable than any single one.
 
 ### 3. Extending the Scope
    - **How might atomic clocks, quartz oscillators, Earth’s rotation, or pulsars all fit into a common timekeeping model?**
