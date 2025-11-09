@@ -1,0 +1,101 @@
+### D. W. Allan, N. Ashby, C. C. Hodge – The Science of Timekeeping (HP App Note 1289)
+
+Almost any clock - a two-part system:
+- oscillating device - gives periodic events
+- counter - adds them up, gives time
+
+(pendulum: oscillation defines second, gears + clock face = counter part; atomic clock: oscillation = EM signal from transition between 2 energy levels)
+
+A clock measures time by counting cycles of something that repeats regularly, after initial setting it keeps “its own” time by accumulating cycles, 
+
+Clock quality (These measures are not all independent.)
+
+**frequency accuracy** (=fractional or normalized frequency departure) - how well it realizes the second
+- y(t) = (change in time error) / elapsed time
+- Harrison chronometer goal: $y(t) < 3.5 \cdot 10^{-5}$
+- today’s primary standards $\approx 10^{-14}$
+- smaller y(t) - better clock
+  
+**frequency stability** - how much frequency changes from one time to next
+- can be inaccurate but still stable (e.g. gains 1 s/day constantly - stable but inaccurate)
+- examples:
+  - hydrogen maser clock - better short-term stability
+  - cesium-beam clock - more accurate
+  - quartz-oscillator based clock - good short-term, drifts long-term
+
+**time accuracy** - how well agrees with UTC
+- ex: GPS satellites need clocks synchronized within few ns
+- same for telecom networks - lost data if unsynced
+
+**time stability** - how much the clock’s time changes compared to a perfectly uniform flow of time (usually correlated with frequency stability)
+- example: clock gains 1 s/day everyday
+  - its time accuracy is getting worse (drifts 1 s daily)
+  - but its frequency stability is perfect — it always gains the same 1 s each day
+  - => consequently perfect time predictability, if the time or frequency errors are known- one can correct them
+
+
+Calibration hierarchy
+  - Primary Frequency Standard - can define the second independently
+  - not always running continuously
+  - secondary clocks are calibrated to them
+  - keep time when primary isn’t operating
+
+Clock ensemble 
+- 2 clocks - can tell difference, not which is wrong
+- 3 - can estimate stability
+- 4 - redundancy (in case one fails)
+- reliability + detect who’s “lying”
+  
+
+
+### Fritz Riehle, Frequency Standards: Basics and Applications, Wiley‐VCH Verlag GmbH & Co. KGaA, 2003.
+
+Passive and active frequency standards
+- passive
+  - device/material sensitive to certain frequency(ies)
+  - e.g. resonators, atoms in absorber cell
+  - needs external oscillator, When interrogated by a suitable oscillator -> an absorption line at the resonance frequency $\nu_0$
+  - symmetric absorption -> can derive anti-symmetric error signal $S$
+  - used in servo loop to tune oscillator ($\nu \approx \nu_0$)
+  - when loop closed, oscillator freq “locked” to reference -> stable
+  - can be used as frequency standard if $\nu$ known + stable
+- active
+  - system itself produces radiation at given freq (no external drive)
+  - e.g. excited atoms emitting coherent signal
+  - examples: hydrogen maser, gas laser (He-Ne)
+
+Frequency standart - clock
+- can be used as a clock if the frequency is suitably divided in a clockwork device and displayed 
+- example - a wrist watch where a quartz resonator defines the frequency of the oscillator at 32768 Hz = $2^{15}$ Hz that is used with a divider to generate the pulses for a stepping motor that drives the second
+hand of the watch
+- (oscillator + divider + display = clock)
+
+If the frequency of a particular stable device has been measured by comparing it to the frequency of another source that can be traced back to the frequency of a primary standard used to realise the SI unit, our stable device then – and only then – represents a frequency standard.
+
+Accuracy, stability analogy (fig 1.4 p.4)
+- bullet holes - repeated frequency measurements
+- a: tight cluster at centre - stable + accurate -> ideal standard
+- b: wide scatter but centred -> poor short-term stability, good long-term accuracy
+- c: tight cluster but offset -> stable but inaccurate (systematic offset, can still use if offset known + corrected)
+- d: scattered + off-centre - unstable + inaccurate => unusable as standard
+- relative accuracy/stability = deviation / $\nu_0$ - smaller number = better performance
+
+**accuracy:** conformity of measured value to definition
+**precision:** how well repeated measurements agree
+  
+
+
+### Petit & Tavella – “Atomic Timekeeping from 1955 to the Present” (2017)
+
+“Defining a clock” = picking measurable periodic observable (rotation, oscillation, resonance).
+
+Clock comparison
+- to build global time scale need methods to compare distant clocks.
+- must not degrade stability (transfer noise must be << clock noise).
+- uncertainty for best modern links = few ns to 1 ns.
+- frequency comparison: random/statistical uncertainty (Type A)
+- time comparison: also systematic (Type B) from calibration (repeated calibrations crucial)
+- comparison defines clock's stability
+- It's possible to measure stability without knowing absolute accuracy
+
+
