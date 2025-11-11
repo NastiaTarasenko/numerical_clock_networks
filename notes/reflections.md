@@ -1,5 +1,29 @@
 ### D. W. Allan, N. Ashby, C. C. Hodge – The Science of Timekeeping (HP App Note 1289)
 
+Evolution of precise timekeeping
+- Quartz oscillators - first mass practical precision (radio, radar, TV, computers).
+  - Define cycles via mechanical/electrical resonance.
+  - Basis for everyday devices (phones, cars, appliances).
+- Atomic clocks - higher accuracy, long-term stability.
+  - EM transitions define frequency; became the main reference for navigation (GPS).
+  - Accuracy today: $\pm 0.3$ ns/day
+
+Natural clocks:
+- Millisecond pulsars - astrophysical clocks.
+  - periods $\approx 1.5578$ ms ($\approx 642$ rotations/s)
+  - stability $\approx$ atomic clocks (error < 1s per well over a million years)
+  - Observed via radio pulses (phase-stable EM signal)
+  - Used with GPS for calibration
+  - Potential tool for gravitational wave detection
+- Earth’s rotation (original natural clock, now one of many layers).
+  - Integrated in UTC corrections (leap seconds).
+
+All timekeeping systems
+- Observable periodic signal (mechanical, electromagnetic, rotational)
+- Key measurable quantities: frequency and phase
+- drift, noise, stability metrics define quality
+- hierarchy of calibrations: natural phenomena -> atomic standards -> quartz devices -> network synchronization
+
 Almost any clock - a two-part system:
 - oscillating device - gives periodic events
 - counter - adds them up, gives time
@@ -118,3 +142,27 @@ Clock comparison
 - It's possible to measure stability without knowing absolute accuracy
 
 
+
+### W. J. Riley, Handbook of Frequency Stability Analysis, NIST SP 1065.
+
+Drift
+- Systematic change in frequency over time (from all causes).
+- Differs from aging: aging = internal effects only; drift = internal + external.
+- Example: quartz oscillator: aging = crystal changes; drift = aging + environmental influence.
+- Drift usually measured under stable conditions (to isolate aging).
+- To analyze: fit trend (linear, log, etc.) using least squares -> remove systematic part before noise analysis.
+- Good model = leaves white (uncorrelated) residuals.
+
+Noise
+- wave output signal from frequency source: $V(t) = [V_0 + \varepsilon (t)]\sin[2\pi \nu_0 t + \phi(t)]$ ($V_0$ - nominal peak output voltage, $\varepsilon (t)$ -  amplitude deviation, $\nu_0$ - nominal frequency, $\phi (t)$ - phase deviation)
+- instantaneous frequency: derivative of total phase.
+- Fractional frequency (relative frequency deviation): $y(t)=\frac{1}{2\pi\nu_0}\frac{d\phi}{dt}$
+- Have power-low type with spectral density $S_y(t) \propto f^\alpha$
+- types
+  - $\alpha=2$ - White PM (W PM) 
+  - $\alpha=1$ - Flicker PM (F PM)
+  - $\alpha=0$ - White FM (W FM)
+  - $\alpha=-1$ - Flicker FM (F FM)
+  - $\alpha=-2$ - Random Walk FM (RW FM)
+  - $\alpha=-3$ - Flicker Walk FM (FW FM)
+  - $\alpha=-4$ - Random Run FM (RR FM) 

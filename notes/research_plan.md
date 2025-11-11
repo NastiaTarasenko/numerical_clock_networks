@@ -48,8 +48,36 @@ Outlier detection: unstable clock can be identified and down-weighted.
 Weighted average (“ensemble time”) gives a virtual clock more stable than any single one.
 
 ### 3. Extending the Scope
-   - **How might atomic clocks, quartz oscillators, Earth’s rotation, or pulsars all fit into a common timekeeping model?**
-   - **Which observables (frequency drift, phase noise, orbital period, etc.) unify these systems conceptually?**
+
+**How might atomic clocks, quartz oscillators, Earth’s rotation, or pulsars all fit into a common timekeeping model?**
+
+All of them are oscillators with measurable periodic behaviour.
+
+Atomic clock: EM transition between energy levels - defines the SI second.
+
+Quartz oscillator: mechanical/electrical resonance - cycles counted electronically.
+
+Earth’s rotation: rotational period as natural “day” standard - basis of mean solar time.
+
+Pulsar: neutron star rotation - stable periodic EM pulses.
+
+Common structure: periodic process + counter
+
+Timekeeping hierarchy: natural phenomena (Earth, pulsar) -> atomic standards -> quartz devices -> network synchronization
+
+**Which observables (frequency drift, phase noise, orbital period, etc.) unify these systems conceptually?**
+
+Frequency – how many cycles per unit time.
+
+Phase – position within each cycle.
+
+Drift – systematic change in frequency over time.
+
+Noise/stability metrics – quantify short-term and long-term variations.
+
+Period stability – from seconds (quartz) to years (pulsars).
+
+All clocks can be modeled as: $V(t) = [V_0 + \varepsilon (t)]\sin[2\pi \nu_0 t + \phi(t)]$ ($V_0$ - nominal peak output voltage, $\varepsilon (t)$ -  amplitude deviation, $\nu_0$ - nominal frequency, $\phi (t)$ - phase deviation)
 
 ### 4. Numerical Realization
    - **Which aspects of your chosen model can be simulated with realistic noise parameters?**
