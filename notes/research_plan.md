@@ -80,9 +80,36 @@ Period stability – from seconds (quartz) to years (pulsars).
 All clocks can be modeled as: $V(t) = [V_0 + \varepsilon (t)]\sin[2\pi \nu_0 t + \phi(t)]$ ($V_0$ - nominal peak output voltage, $\varepsilon (t)$ -  amplitude deviation, $\nu_0$ - nominal frequency, $\phi (t)$ - phase deviation)
 
 ### 4. Numerical Realization
-   - **Which aspects of your chosen model can be simulated with realistic noise parameters?**
-   - **What assumptions will you make about noise types (white, flicker, random-walk)?**
-   - **How can you visualize the performance and correlations within your network?**
+
+**Which aspects of your chosen model can be simulated with realistic noise parameters?**
+
+I will simulate three clocks, each characterized by a different type of frequency noise:
+- White frequency noise (W FM) – represents random uncorrelated fluctuations in frequency.
+- Flicker frequency noise (F FM) – represents correlated fluctuations that remain roughly constant over a range of averaging times.
+- Random-walk frequency noise (RW FM) – represents cumulative frequency deviations over time, modeling aging or environmental drifts.
+
+**What assumptions will you make about noise types (white, flicker, random-walk)?**
+
+Noise processes are uncorrelated between clocks.
+
+Each noise type follows standard statistical models:
+  - White FM: Gaussian uncorrelated steps in frequency.
+  - Flicker FM: long-term correlated frequency deviations with flat Allan variance at intermediate averaging times.
+  - Random-walk FM: cumulative frequency deviations, producing $\sigma_y \propto \tau^{1/2}$ at long averaging times.
+
+Environmental and systematic drifts beyond these noise types are neglected
+
+Time step $\Delta t$ is small enough to resolve short-term fluctuations, but large enough for computational efficiency.
+
+**How can you visualize the performance and correlations within your network?**
+
+Time-domain plots: $y(t)$ or $\phi(t)$ vs time for each clock, showing raw fluctuations.
+
+Allan deviation plots: $\sigma_y(t)$ vs averaging time $\tau$ (log–log scale) for each clock. The slope reveals the dominant noise type.
+
+Comparisons between clocks: pairwise differences $\Delta y_{ij}(t)$ can illustrate relative stability and identify which clock is noisier.
+
+<!-- Optional extension: triangular or larger networks can be visualized with heatmaps or correlation matrices, showing how each clock contributes to overall network stability. -->
 
 ### 5. Interpretation and Broader Context
    - **What does “synchronization” mean when combining systems from quantum to cosmological scales?**
