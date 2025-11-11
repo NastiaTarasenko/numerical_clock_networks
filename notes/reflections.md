@@ -89,7 +89,35 @@ Triangular and larger networks
   - for 3 clocks: $\sigma_1^2 = \frac{1}{2}(\sigma_{12}^2 + \sigma_{13}^2 - \sigma_{23}^2)$, similar for $\sigma_2$ and $\sigma_3$
 - for larger networks - allows consistent estimation of all clocks’ stability even without external reference.
   
+Synchronization
+- The times of clocks are in synchronization if their
+readings are the same after accounting for reference
+frame delays and relativistic effects. Synchronization
+needs to be specified to within some level of uncertainty.
 
+GPS
+- Provides both time transfer and time reference across locations
+- types of time from GPS
+  - GPS time
+  - UTC estimated/produced by USNO
+  - Individual free-running GPS satellite clocks
+- Master Control Station (Falcon AFB) collects data from 5 global monitor stations
+- Uses Kalman filter to estimate:
+  - time error
+  - frequency error
+  - frequency drift
+  - satellite orbital parameters
+- updates sent to satellites - broadcasts synchronized GPS time across constellation.
+- Result: GPS time consistency within a few nanoseconds, satellite positions within a few meters.
+- Use multiple independent sources (satellites, timing centers) - redundancy improves reliability.
+- Continuous error estimation and correction (Kalman filtering, predictions) - resilience to drift or failure.
+- Broadcasting corrections allows remote nodes to compute accurate UTC - robust synchronization even if some signals are degraded.
+- Ability to filter intentional/unintentional noise improves network robustness.
+
+GPS vs UTC
+- GPS time does not include leap seconds, while UTC does.
+- Steering GPS time to match UTC(USNO MC) keeps differences > 40ns
+- Enables receivers to calculate accurate UTC estimates, goal $\approx$ 28 ns
 
 ### Fritz Riehle, Frequency Standards: Basics and Applications, Wiley‐VCH Verlag GmbH & Co. KGaA, 2003.
 
@@ -140,6 +168,16 @@ Clock comparison
 - time comparison: also systematic (Type B) from calibration (repeated calibrations crucial)
 - comparison defines clock's stability
 - It's possible to measure stability without knowing absolute accuracy
+
+TAI, UTC, GPS
+- TAI - International Atomic Time, pure atomic scale.
+- UTC - Coordinated Universal Time, hybrid: atomic time + steps to follow Earth’s irregular rotation.
+- UTC(k) - local approximation of UTC, traceable to UTC.
+- Difference [TAI − GPS] = 19s + C (C $\approx$ 10)
+- GPS clocks steered to UTC(USNO); maximum deviation <= 1$\mu s$
+- even with perfect clocks, knowledge of absolute time depends on transmission, measurement, and reference uncertainties
+- UTC approximates solar time, TAI approximates ideal atomic time; we cannot directly observe “absolute” time
+- Measurement precision is limited by physical signals, environmental effects, and fundamental stochastic clock noise
 
 
 
