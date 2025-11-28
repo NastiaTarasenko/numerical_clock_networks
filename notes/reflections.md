@@ -195,7 +195,7 @@ Noise
 - wave output signal from frequency source: $V(t) = [V_0 + \varepsilon (t)]\sin[2\pi \nu_0 t + \phi(t)]$ ($V_0$ - nominal peak output voltage, $\varepsilon (t)$ -  amplitude deviation, $\nu_0$ - nominal frequency, $\phi (t)$ - phase deviation)
 - instantaneous frequency: derivative of total phase.
 - Fractional frequency (relative frequency deviation): $y(t)=\frac{1}{2\pi\nu_0}\frac{d\phi}{dt}$
-- Have power-low type with spectral density $S_y(t) \propto f^\alpha$
+- Have power-low type with spectral density $S_y(f) \propto f^\alpha$
 - types
   - $\alpha=2$ - White PM (W PM) 
   - $\alpha=1$ - Flicker PM (F PM)
